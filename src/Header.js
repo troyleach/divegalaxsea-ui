@@ -17,7 +17,7 @@ class Header extends Component {
     return (
       <div className="App">
         <div>
-          <h1>This is the Header</h1>
+          <h3>This is the Header</h3>
         </div>
       </div >
     );

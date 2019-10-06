@@ -2,7 +2,9 @@ import React, {
   Component
 } from 'react';
 
-import Typography from '@material-ui/core/Typography';
+import './Home.css';
+
+import ThreeBoxGrid from './components/ThreeBoxGrid';
 
 class Home extends Component {
   constructor(props) {
@@ -19,9 +21,15 @@ class Home extends Component {
     return (
       <div className="App">
         <div>
-          <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} >
-            <h1>This is the home page</h1>
-          </Typography>
+          <h1>This is the home page</h1>
+          <div className='picture-gallery'>
+            picture box goes here
+          </div>
+
+          <ThreeBoxGrid
+            boxOne="picture one"
+            boxTwo="picture two"
+            boxThree="picture three" />
         </div>
       </div >
     );

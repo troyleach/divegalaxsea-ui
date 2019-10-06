@@ -1,6 +1,11 @@
 import React, {
   Component
 } from 'react';
+import './App.css';
+import './Footer.css';
+
+import ThreeBoxGrid from './components/ThreeBoxGrid';
+
 
 class Footer extends Component {
   constructor(props) {
@@ -14,11 +19,16 @@ class Footer extends Component {
   async componentDidMount() { }
 
   render() {
+
     return (
-      <div className="App">
-        <div>
-          <h1>This is the Footer</h1>
-        </div>
+      <div className="footer">
+        <footer className="footer-content">
+          <ThreeBoxGrid
+            boxOne="Trip Advisor"
+            boxTwo="Weather api"
+            boxThree="Advertising" />
+          <small>copy right DiveGalaxsea by: troyLeach</small>
+        </footer>
       </div >
     );
   };
