@@ -1,0 +1,28 @@
+a:link {
+  color: #bd2031;
+}
+
+a:visited {
+  color: #bd2031;
+}
+
+.trip-advisor-col-title {
+  text-align: left;
+  font-style: italic;
+  color: green;
+}
+
+.trip-advisor-img {
+  height: 5vh;
+  width: auto;
+}
+.review-quote {
+  font-style: italic;
+  text-align: justify;
+}
+
+
+.review-date {
+  font-size: 0.7rem;
+  text-align: right;
+}

@@ -11,7 +11,8 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      email: "",
+      data: {},
+      tripAdvisor: false
     };
   }
 
