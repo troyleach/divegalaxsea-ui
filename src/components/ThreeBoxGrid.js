@@ -4,6 +4,8 @@ import './ThreeBoxGrid.css';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
+import moment from 'moment';
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -17,10 +19,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const renderReviews = (items) => {
-  return items.map(element => {
+  return items.map((element, idx) => {
     const { date, url, partial_entry: quote } = element;
     return (
-      <div className='review-block'>
+      <div key={idx} className='review-block'>
         <p className='review-quote'>
           {quote} <a href={url}>more...</a>
         </p>
@@ -31,9 +33,7 @@ const renderReviews = (items) => {
 }
 
 function renderTripAdvisor(props) {
-  console.log('props', props.boxOne.data)
   const { title, image, reviewUrl, quotes } = props.boxOne.data //destructuring
-  console.log('there I am ', title, image)
   return (
     <div>
       <div className="trip-advisor-col-title">
@@ -55,12 +55,22 @@ function renderTripAdvisor(props) {
   )
 }
 
+const renderWeather = (weather) => {
+  console.log('weather YO', weather.currently)
+  const { time } = weather.currently
+  const date = moment(time * 1000).format('MMM DD  - hh:mm')
+  console.log('TIME', date)
+
+  return (
+    <div className='weather-block'>
+      <p className='weather-time'>
+        time goes here
+      </p>
+    </div>
+  )
+}
+
 export default function ThreeBoxGrid(props) {
-  if (props.boxOne && props.boxOne.data) {
-    console.log('props', props.boxOne)
-    const { title, image, reviewUrl, quotes } = props.boxOne //destructuring
-    console.log('there I am ', title, image)
-  }
   const classes = useStyles();
 
   return (
@@ -74,7 +84,11 @@ export default function ThreeBoxGrid(props) {
           </Paper>
         </Grid>
         <Grid item xs={12} sm={4}>
-          <Paper className={classes.paper}>{props.boxTwo}</Paper>
+          <Paper className={classes.paper}>
+            {props.boxTwo.weather &&
+              renderWeather(props.boxTwo.weatherData)
+            }
+          </Paper>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>{props.boxThree}</Paper>
