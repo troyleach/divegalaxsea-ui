@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import './ThreeBoxGrid.css';
+import Weather from './Weather';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
@@ -15,6 +16,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    height: 435,
   },
 }));
 
@@ -55,20 +57,20 @@ function renderTripAdvisor(props) {
   )
 }
 
-const renderWeather = (weather) => {
-  console.log('weather YO', weather.currently)
-  const { time } = weather.currently
-  const date = moment(time * 1000).format('MMM DD  - hh:mm')
-  console.log('TIME', date)
+// const renderWeather = (weather) => {
+//   console.log('weather YO', weather.currently)
+//   const { time } = weather.currently
+//   const date = moment(time * 1000).format('MMM DD  - hh:mm')
+//   console.log('TIME', date)
 
-  return (
-    <div className='weather-block'>
-      <p className='weather-time'>
-        time goes here
-      </p>
-    </div>
-  )
-}
+//   return (
+//     <div className='weather-block'>
+//       <p className='weather-time'>
+//         time goes here
+//       </p>
+//     </div>
+//   )
+// }
 
 export default function ThreeBoxGrid(props) {
   const classes = useStyles();
@@ -86,7 +88,9 @@ export default function ThreeBoxGrid(props) {
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
             {props.boxTwo.weather &&
-              renderWeather(props.boxTwo.weatherData)
+              <Weather
+                data={props.boxTwo.weatherData}
+              />
             }
           </Paper>
         </Grid>

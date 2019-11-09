@@ -1,3 +1,11 @@
+body {
+  --english-blue-color: #0D0D52;
+  --english-blue-color-75: #423480;
+  --english-blue-color-50: #715eb0;
+  --english-blue-color-25: #a38ce3;
+  --white-text-color: #fff;
+  --gray-text-color: #aea8ba;
+}
 .App {
   text-align: center;
 }
