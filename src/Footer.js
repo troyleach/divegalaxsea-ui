@@ -18,6 +18,7 @@ class Footer extends Component {
       tripAdvisor: false,
       weatherData: {},
       weather: false,
+      advertising: false,
     };
   }
 
@@ -30,17 +31,20 @@ class Footer extends Component {
       tripAdvisor: true,
       weatherData: weather,
       weather: true,
+      advertising: true,
     })
   }
 
   render() {
+    // BoxThree is for advertising. Maybe in the future the can be from the Db
+    // but for now it is hard coded in ThreeBoxGrid.js
     return (
       <div className="footer">
         <footer className="footer-content">
           <ThreeBoxGrid
             boxOne={this.state}
             boxTwo={this.state}
-            boxThree="Advertising" />
+            boxThree={this.state} />
           <small className='copy-right-text'>copy right DiveGalaxsea by: troyLeach</small>
         </footer>
       </div >

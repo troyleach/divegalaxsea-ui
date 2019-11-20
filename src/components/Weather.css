@@ -30,10 +30,18 @@ a:visited {
 }
 
 .weather-vitals {
+  margin: 10px;
   display: inline-block;
 }
 
-.date-text, .feels-like-text, .wind-text, .humidity-text, .pressure-text, .uv-index-text {
+.date-text {
+  text-align: center;
+  font-size: .75rem;
+  width: 100%;
+
+}
+
+.feels-like-text, .wind-text, .humidity-text, .pressure-text, .uv-index-text {
   text-align: left;
   font-size: .75rem;
   display: block;

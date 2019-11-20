@@ -1,11 +1,19 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import './ThreeBoxGrid.css';
+import './advertising.css';
+
+import ScubaDivingCozumel from './ScubaDivingCozumel'
+
 import Weather from './Weather';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 import moment from 'moment';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitterSquare, faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height: 435,
+    height: 385,
   },
 }));
 
@@ -57,20 +65,54 @@ function renderTripAdvisor(props) {
   )
 }
 
-// const renderWeather = (weather) => {
-//   console.log('weather YO', weather.currently)
-//   const { time } = weather.currently
-//   const date = moment(time * 1000).format('MMM DD  - hh:mm')
-//   console.log('TIME', date)
+function renderAdvertising(props) {
+  // for now props is NOT being used
+  return (
+    <div id="social" className="advertising-container">
+      <div className="row ssi-nitrox-logos">
+        <Grid container spacing={1}>
+          <Grid item xs={6}>
+            <a href="http://www.divessi.com/">
+              <img className="ssi-logo" src="ssi-logo-red-text.png" alt="SSI logo" />
+            </a>
+          </Grid>
+          <Grid item xs={6}>
+            <div className="col-md-4">
+              <img className="nitrox-logo" src="nitroxT.png" alt="Nitrox Patch" />
+            </div>
+          </Grid>
+        </Grid>
+      </div>
+      <hr className="general-line-brake" />
+      <div className='w3-center'>
+        <img className='adopt-dive-site' src="adopt-a-dive-site.png" alt="Adopt a Dive Site" />
+      </div>
+      <div className="email-us">
+        <span>Have a quick question?</span><br />
+        <a href="mailto:kim@divegalaxsea.com"><span>Contact us!</span></a><br />
+        <br />
+        <span>Ready to go diving?</span><br />
+        <a href="#/reservations"><span>Book Your Diving</span></a>
+      </div>
+      <hr className="general-line-brake" />
+      <div className="social-icons">
+        <Grid container justify='center' spacing={2}>
 
-//   return (
-//     <div className='weather-block'>
-//       <p className='weather-time'>
-//         time goes here
-//       </p>
-//     </div>
-//   )
-// }
+          <Grid xs={2}>
+            <a href="https://www.facebook.com/DiveGalaxSeaCozumel">
+              <FontAwesomeIcon icon={faFacebookSquare} size='2x' color="#3b5999" />
+            </a>
+          </Grid>
+          <Grid xs={2}>
+            <a href="https://twitter.com/divegalaxsea">
+              <FontAwesomeIcon icon={faTwitterSquare} size='2x' color="#1ca1f2" />
+            </a>
+          </Grid>
+        </Grid>
+      </div>
+    </div>
+  )
+}
 
 export default function ThreeBoxGrid(props) {
   const classes = useStyles();
@@ -80,13 +122,24 @@ export default function ThreeBoxGrid(props) {
       <Grid container spacing={1}>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-            {props.boxOne.tripAdvisor &&
+            {
+              props.boxOne.scubaDivingCozumel &&
+              <ScubaDivingCozumel
+                title='Scuba Diving in Cozumel' />
+            }
+            {
+              props.boxOne.tripAdvisor &&
               renderTripAdvisor(props)
             }
           </Paper>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
+            {
+              props.boxOne.divePhotoVideoGallery &&
+              <ScubaDivingCozumel
+                title='Dive Photos & Video Gallery' />
+            }
             {props.boxTwo.weather &&
               <Weather
                 data={props.boxTwo.weatherData}
@@ -95,7 +148,14 @@ export default function ThreeBoxGrid(props) {
           </Paper>
         </Grid>
         <Grid item xs={12} sm={4}>
-          <Paper className={classes.paper}>{props.boxThree}</Paper>
+          <Paper className={classes.paper}>
+            {
+              props.boxThree.interactiveCozumelMap &&
+              <ScubaDivingCozumel
+                title='Interactive Cozumel Reef Map' />
+            }
+            {props.boxThree.advertising && renderAdvertising(props.boxThree)}
+          </Paper>
         </Grid>
         {/* <Grid item xs={12}>
           <Paper className={classes.paper}>very bottom of the footer</Paper>

@@ -1,13 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import './Weather.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// https://fontawesome.com/icons?d=gallery&c=weather&m=free
-import {
-  faCloud, faBolt, faCloudMoon, faCloudMoonRain, faCloudRain,
-  faCloudShowersHeavy, faCloudSun, faCloudSunRain
-} from '@fortawesome/free-solid-svg-icons'
+import './Weather.css';
+import './WeatherDayTable';
+import getWeatherIcon from '../lib/getWeatherIcon';
+
 
 // FIXME: this seems much easier.. oops
 // https://najens.github.io/weather-icons-react/
@@ -40,6 +37,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 import moment from 'moment';
+import WeatherDayTable from './WeatherDayTable';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -57,55 +55,65 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const weatherIcons = {
-  "clear-day": '<i className="wi wi-day-sunny"></i>',
-  "clear-night": '<i className="wi wi-night-clear"></i>',
-  "snow": '<i className="wi wi-snow"></i>',
-  "rain": '<i className="wi wi-thunderstorm"></i>',
-  "fog": '<i className="wi wi-fog"></i>',
-  "cloudy": '<i className="wi wi-cloudy"></i>',
-  "wind": '<i className="wi wi-day-windy"></i>',
-  "sleet": '<i className="wi wi-sleet"></i>',
-  "partly-cloudy-night": '<i className="wi wi-night-partly-cloudy"></i>',
-  "partly-cloudy-day": 'this is crzy'
-};
+// const weatherIcons = {
+//   "clear-day": '<i className="wi wi-day-sunny"></i>',
+//   "clear-night": '<i className="wi wi-night-clear"></i>',
+//   "snow": '<i className="wi wi-snow"></i>',
+//   "rain": '<i className="wi wi-thunderstorm"></i>',
+//   "fog": '<i className="wi wi-fog"></i>',
+//   "cloudy": '<i className="wi wi-cloudy"></i>',
+//   "wind": '<i className="wi wi-day-windy"></i>',
+//   "sleet": '<i className="wi wi-sleet"></i>',
+//   "partly-cloudy-night": '<i className="wi wi-night-partly-cloudy"></i>',
+//   "partly-cloudy-day": 'this is crzy'
+// };
 
-// FIXME: pull this out into it's own lib file
-const getWeatherIcon = (icon) => {
-  switch (icon) {
-    case 'partly-cloudy-day':
-      return <FontAwesomeIcon icon={faCloudSun} size="4x" color="red" />
-    case 'partly-cloudy-night':
-      return <FontAwesomeIcon icon={faCloudMoon} size="4x" color="red" />
-    default:
-      return <FontAwesomeIcon icon={faCloudMoon} size="4x" color="red" />
-  }
-}
-const renderDayTable = () => { };
+// // FIXME: pull this out into it's own lib file
+// const getWeatherIcon = (icon) => {
+//   switch (icon) {
+//     case 'partly-cloudy-day':
+//       return <FontAwesomeIcon icon={faCloudSun} size="4x" color="red" />
+//     case 'partly-cloudy-night':
+//       return <FontAwesomeIcon icon={faCloudMoon} size="4x" color="red" />
+//     default:
+//       return <FontAwesomeIcon icon={faCloudMoon} size="4x" color="red" />
+//   }
+// }
 
 const renderWeather = (weather) => {
   console.log('weather YO', weather.data)
-  const { currently } = weather.data;
-  const { summary, icon, temperature, time, apparentTemperature, humidity, pressure, windSpeed, uvIndex } = currently;
+  const { currently, daily } = weather.data;
+  const { summary,
+    icon,
+    temperature,
+    time,
+    apparentTemperature,
+    humidity,
+    pressure,
+    windSpeed,
+    uvIndex } = currently;
 
-  const date = moment(time * 1000).format('MMM DD  - hh:mm')
+  const date = moment(time * 1000).format('LLLL')
   console.log('TIME', date)
 
   return (
     <div className='weather-block'>
       <div className='weather-time'>
         <div>
-          {getWeatherIcon(icon)} <span className='temperature-text'>{temperature}&deg;</span>
+          {getWeatherIcon(icon, "4x")} <span className='temperature-text'>{Math.round(temperature)}&deg;F</span>
         </div>
         <span className='summary-text'>{summary}</span>
+        <span className='date-text'>{date}</span><br />
         <div className='weather-vitals'>
-          <span className='date-text'>{date}</span>
-          <span className='feels-like-text'>feels like: {apparentTemperature}</span>
+          <span className='feels-like-text'>feels like: {Math.round(apparentTemperature)}</span>
           <span className='wind-text'>wind: {windSpeed}</span>
-          <span className='humidity-text'>humidity: {humidity}</span>
-          <span className='pressure-text'>pressure: {pressure}</span>
+          <span className='humidity-text'>humidity: {humidity * 100}%</span>
           <span className='uv-index-text'>uv index: {uvIndex}</span>
         </div>
+        <div className='days-of-week'>
+          <WeatherDayTable {...daily} />
+        </div>
+
       </div>
     </div>
   )
@@ -123,13 +131,14 @@ export default function Weather(props) {
           Cozumel Weather
         </div>
         <CardContent>
-          <Typography variant="body2" component="p">
+          <div variant="body2" component="p">
             {renderWeather(props)}
-          </Typography>
+          </div>
         </CardContent>
         <div className='weatherFooter'>
-          Weather from some place cool
-      </div>
+          <a>Darksky</a>
+          {/* https://darksky.net/dev */}
+        </div>
       </Card>
     </div>
   );
