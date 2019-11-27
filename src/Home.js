@@ -11,7 +11,10 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      email: "",
+      data: {},
+      scubaDivingCozumel: true,
+      divePhotoVideoGallery: true,
+      interactiveCozumelMap: true,
     };
   }
 
@@ -27,9 +30,9 @@ class Home extends Component {
           </div>
 
           <ThreeBoxGrid
-            boxOne="picture one"
-            boxTwo="picture two"
-            boxThree="picture three" />
+            boxOne={this.state}
+            boxTwo={this.state}
+            boxThree={this.state} />
         </div>
       </div >
     );

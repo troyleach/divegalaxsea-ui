@@ -1,1 +1,6 @@
 .footer {}
+
+.copy-right-text {
+  /* TODO: this does not work?? */
+  margin: 5px;
+}

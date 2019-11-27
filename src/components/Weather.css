@@ -1,0 +1,55 @@
+/* TODO: need to use variables here */
+a:link {
+  color: #bd2031;
+}
+
+a:visited {
+  color: #bd2031;
+}
+
+.weatherCard {
+  /* background-color: var(--english-blue-color) !important; */
+  min-width: 275px;
+}
+
+.weatherHeader {
+  color: var(--gray-text-color);
+  background-color: var(--english-blue-color-75);
+  font-size: .75rem !important;
+  /* filter: brightness(150%); */
+}
+
+.temperature-text {
+  font-size: 2rem;
+  padding: 10px;
+}
+
+.summary-text {
+  font-size: 1rem;
+  display: block;
+}
+
+.weather-vitals {
+  margin: 10px;
+  display: inline-block;
+}
+
+.date-text {
+  text-align: center;
+  font-size: .75rem;
+  width: 100%;
+
+}
+
+.feels-like-text, .wind-text, .humidity-text, .pressure-text, .uv-index-text {
+  text-align: left;
+  font-size: .75rem;
+  display: block;
+  width: 100px;
+}
+
+.weatherFooter {
+  color: var(--gray-text-color);
+  background-color: var(--english-blue-color-75);
+  font-size: .75rem !important;
+}  
