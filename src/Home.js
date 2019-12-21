@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 
 import './Home.css';
+import PictureCarousel from './components/PictureCarousel'
 
 import ThreeBoxGrid from './components/ThreeBoxGrid';
 
@@ -18,15 +19,20 @@ class Home extends Component {
     };
   }
 
-  async componentDidMount() { }
+  async componentDidMount() {
+    // make the api calls here
+  }
 
   render() {
     return (
       <div className="App">
         <div>
-          <h1>This is the home page</h1>
+
+
           <div className='picture-gallery'>
-            picture box goes here
+            <PictureCarousel
+              images={this.state.images}
+            />
           </div>
 
           <ThreeBoxGrid
