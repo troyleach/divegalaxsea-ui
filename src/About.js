@@ -17,8 +17,8 @@ class About extends Component {
     return (
       <div className="about-container">
         <Grid container spacing={4}>
-          <Grid item xs={6}>
-            <p>
+          <Grid item md={6} xs={12}>
+            <div className="paragraph-container">
               Cozumel is like no other island in the world. Many visitors agree
               that it’s the most magnificent and charming vacation destination
               in Mexico. Cozumel is the premiere scuba diving and snorkeling
@@ -27,27 +27,27 @@ class About extends Component {
               System, the second largest in the world. Cozumel has vibrant white
               sand beaches that slide right into the dazzling, crystal blue
               Caribbean Ocean.
-            </p>
-            <p>
+            </div>
+            <div className="paragraph-container">
               Cozumel weather is lovely, with continuously warm temperatures all
               year round. Ocean temperatures are perfect for scuba divers and
               snorkelers at no less than 77°F. Cozumel’s weather isn’t the only
               thing that makes Cozumel the best island destination in the world
               but the consistency is a huge plus.
-            </p>
+            </div>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item md={6} xs={12}>
             <img
-              className="CozumelCarnival"
+              className="cozumel-carnival"
               src="CarnivalCozumel.jpg"
               alt="carnival"
             />
           </Grid>
-          <Grid item xs={6}>
-            <img className="Food" src="Food.jpg" alt="food" />
+          <Grid item md={6} xs={12}>
+            <img className="image-of-tacos" src="Food.jpg" alt="food" />
           </Grid>
-          <Grid item xs={6}>
-            <p>
+          <Grid item md={6} xs={12}>
+            <div className="paragraph-container">
               Cozumel is one of the safest places in Mexico and some say Cozumel
               is the safest vacation destination in the world. This is what
               makes Cozumel so unique and gives visitors the ability to get out
@@ -59,7 +59,7 @@ class About extends Component {
               charming, warm vibe as the sun thaws your body. You'll then
               realize why so many choose Cozumel as their travel destination and
               why so many return time and again to Dive GalaxSea!
-            </p>
+            </div>
           </Grid>
         </Grid>
       </div>
