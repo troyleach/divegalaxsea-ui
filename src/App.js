@@ -1,13 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from "react";
 
-import './App.css';
-import { Container } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
+import "./App.css";
 
-import Home from './Home';
-import Header from './Header';
-import Footer from './Footer';
+import Home from "./Home";
+import Header from "./Header";
+import Footer from "./Footer";
 
 function App() {
   return (
