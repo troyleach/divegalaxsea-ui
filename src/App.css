@@ -1,5 +1,5 @@
 body {
-  --english-blue-color: #0D0D52;
+  --english-blue-color: #0d0d52;
   --english-blue-color-75: #423480;
   --english-blue-color-50: #715eb0;
   --english-blue-color-25: #a38ce3;
@@ -29,7 +29,8 @@ body {
   color: #09d3ac;
 }
 
-.Site {}
+.Site {
+}
 
 .Site-content {
   border: 1px solid red;
@@ -37,10 +38,10 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 2rem;
-  background-color: #B10DC9;
 }
 
-.App-home {}
+.App-home {
+}
 
 .App-footer {
   min-width: 100%;
