@@ -15,10 +15,10 @@ class About extends Component {
 
   render() {
     return (
-      <div className="about-container">
+      <div id="blockContainer" className="about-container">
         <Grid container spacing={4}>
           <Grid item md={6} xs={12}>
-            <div className="paragraph-container">
+            <div className="paragraph-container-one">
               Cozumel is like no other island in the world. Many visitors agree
               that it’s the most magnificent and charming vacation destination
               in Mexico. Cozumel is the premiere scuba diving and snorkeling
@@ -28,7 +28,7 @@ class About extends Component {
               sand beaches that slide right into the dazzling, crystal blue
               Caribbean Ocean.
             </div>
-            <div className="paragraph-container">
+            <div className="paragraph-container-two">
               Cozumel weather is lovely, with continuously warm temperatures all
               year round. Ocean temperatures are perfect for scuba divers and
               snorkelers at no less than 77°F. Cozumel’s weather isn’t the only
@@ -37,17 +37,18 @@ class About extends Component {
             </div>
           </Grid>
           <Grid item md={6} xs={12}>
-            <img
-              className="cozumel-carnival"
-              src="CarnivalCozumel.jpg"
-              alt="carnival"
-            />
+              <img
+                className="cozumel-carnival"
+                src="CarnivalCozumel.jpg"
+                alt="carnival"
+              />
           </Grid>
           <Grid item md={6} xs={12}>
-            <img className="image-of-tacos" src="Food.jpg" alt="food" />
+              <img className="image-of-tacos" src="Food.jpg" alt="food" />
           </Grid>
+
           <Grid item md={6} xs={12}>
-            <div className="paragraph-container">
+            <div className="paragraph-container-three">
               Cozumel is one of the safest places in Mexico and some say Cozumel
               is the safest vacation destination in the world. This is what
               makes Cozumel so unique and gives visitors the ability to get out
