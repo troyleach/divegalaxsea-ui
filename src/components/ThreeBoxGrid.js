@@ -152,7 +152,7 @@ export default function ThreeBoxGrid(props) {
   return (
     <div className={classes.root}>
       <Grid container spacing={1}>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={12} md={4}>
           <Paper className={classes.paper}>
             {props.boxOne.scubaDivingCozumel && (
               <ScubaDivingCozumel title="Scuba Diving in Cozumel" />
@@ -160,7 +160,7 @@ export default function ThreeBoxGrid(props) {
             {props.boxOne.tripAdvisor && renderTripAdvisor(props)}
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={12} md={4}>
           <Paper className={classes.paper}>
             {props.boxOne.divePhotoVideoGallery && (
               <ScubaDivingCozumel title="Dive Photos & Video Gallery" />
@@ -170,7 +170,7 @@ export default function ThreeBoxGrid(props) {
             )}
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={12} md={4}>
           <Paper className={classes.paper}>
             {props.boxThree.interactiveCozumelMap && (
               <ScubaDivingCozumel title="Interactive Cozumel Reef Map" />
