@@ -1,14 +1,12 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 
-import './Weather.css';
-import './WeatherDayTable';
-import getWeatherIcon from '../lib/getWeatherIcon';
-
+import "./Weather.css";
+import "./WeatherDayTable";
+import getWeatherIcon from "../lib/getWeatherIcon";
 
 // FIXME: this seems much easier.. oops
 // https://najens.github.io/weather-icons-react/
-
 
 // For the weather Icons
 // import '../weatherCss/weather-icons-wind.css';
@@ -19,25 +17,23 @@ import getWeatherIcon from '../lib/getWeatherIcon';
 // import '../fonts/weathericons-regular-webfont.woff';
 // import '../fonts/weathericons-regular-webfont.woff2';
 
-
 // https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/font/weathericons-regular-webfont.eot
 // https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/font/weathericons-regular-webfont.svg
 // https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/font/weathericons-regular-webfont.ttf
 // https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/font/weathericons-regular-webfont.woff
 // https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/font/weathericons-regular-webfont.woff2
 
-
-
 // import Card from '@material-ui/core/Card';
 // import Grid from '@material-ui/core/Grid';
 // import Paper from '@material-ui/core/Paper';
 
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
 
-import moment from 'moment';
-import WeatherDayTable from './WeatherDayTable';
+import moment from "moment";
+import WeatherDayTable from "./WeatherDayTable";
+import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -46,13 +42,14 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     // padding: theme.spacing(2),
-    textAlign: 'center',
+    textAlign: "center",
     color: theme.palette.text.secondary,
-    height: 435,
+    height: "100%",
+    width: "100"
   },
   card: {
-    minWidth: 275,
-  },
+    minWidth: 275
+  }
 }));
 
 // const weatherIcons = {
@@ -80,10 +77,11 @@ const useStyles = makeStyles(theme => ({
 //   }
 // }
 
-const renderWeather = (weather) => {
-  console.log('weather YO', weather.data)
+const renderWeather = weather => {
+  console.log("weather YO", weather.data);
   const { currently, daily } = weather.data;
-  const { summary,
+  const {
+    summary,
     icon,
     temperature,
     time,
@@ -91,55 +89,58 @@ const renderWeather = (weather) => {
     humidity,
     pressure,
     windSpeed,
-    uvIndex } = currently;
+    uvIndex
+  } = currently;
 
-  const date = moment(time * 1000).format('LLLL')
-  console.log('TIME', date)
+  const date = moment(time * 1000).format("LLLL");
+  console.log("TIME", date);
 
   return (
-    <div className='weather-block'>
-      <div className='weather-time'>
+    <div className="weather-block">
+      <div className="weather-time">
         <div>
-          {getWeatherIcon(icon, "4x")} <span className='temperature-text'>{Math.round(temperature)}&deg;F</span>
+          {getWeatherIcon(icon, "4x")}{" "}
+          <span className="temperature-text">
+            {Math.round(temperature)}&deg;F
+          </span>
         </div>
-        <span className='summary-text'>{summary}</span>
-        <span className='date-text'>{date}</span><br />
-        <div className='weather-vitals'>
-          <span className='feels-like-text'>feels like: {Math.round(apparentTemperature)}</span>
-          <span className='wind-text'>wind: {windSpeed}</span>
-          <span className='humidity-text'>humidity: {humidity * 100}%</span>
-          <span className='uv-index-text'>uv index: {uvIndex}</span>
+        <span className="summary-text">{summary}</span>
+        <span className="date-text">{date}</span>
+        <br />
+        <div className="weather-vitals">
+          <span className="feels-like-text">
+            feels like: {Math.round(apparentTemperature)}
+          </span>
+          <span className="wind-text">wind: {windSpeed}</span>
+          <span className="humidity-text">humidity: {humidity * 100}%</span>
+          <span className="uv-index-text">uv index: {uvIndex}</span>
         </div>
-        <div className='days-of-week'>
+        <div className="days-of-week">
           <WeatherDayTable {...daily} />
         </div>
-
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default function Weather(props) {
   const classes = useStyles();
-  console.log('here are the props in weather', props)
-
+  console.log("here are the props in weather", props);
 
   return (
     <div className={classes.root}>
-      <Card className='weatherCard'>
-        <div className='weatherHeader'>
-          Cozumel Weather
-        </div>
+      <Grid className="weatherCard">
+        <div className="weatherHeader">Cozumel Weather</div>
         <CardContent>
-          <div variant="body2" component="p">
+          <div className="weatherIcons" variant="body2" component="p">
             {renderWeather(props)}
           </div>
         </CardContent>
-        <div className='weatherFooter'>
+        <div className="weatherFooter">
           <a>Darksky</a>
           {/* https://darksky.net/dev */}
         </div>
-      </Card>
+      </Grid>
     </div>
   );
 }

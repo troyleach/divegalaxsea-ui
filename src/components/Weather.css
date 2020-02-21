@@ -9,13 +9,13 @@ a:visited {
 
 .weatherCard {
   /* background-color: var(--english-blue-color) !important; */
-  min-width: 275px;
+  min-width: 240px;
 }
 
 .weatherHeader {
   color: var(--gray-text-color);
   background-color: var(--english-blue-color-75);
-  font-size: .75rem !important;
+  font-size: 0.75rem !important;
   /* filter: brightness(150%); */
 }
 
@@ -30,20 +30,23 @@ a:visited {
 }
 
 .weather-vitals {
-  margin: 10px;
+  margin: 6px;
   display: inline-block;
 }
 
 .date-text {
   text-align: center;
-  font-size: .75rem;
+  font-size: 0.75rem;
   width: 100%;
-
 }
 
-.feels-like-text, .wind-text, .humidity-text, .pressure-text, .uv-index-text {
+.feels-like-text,
+.wind-text,
+.humidity-text,
+.pressure-text,
+.uv-index-text {
   text-align: left;
-  font-size: .75rem;
+  font-size: 0.75rem;
   display: block;
   width: 100px;
 }
@@ -51,5 +54,5 @@ a:visited {
 .weatherFooter {
   color: var(--gray-text-color);
   background-color: var(--english-blue-color-75);
-  font-size: .75rem !important;
-}  
+  font-size: 0.75rem !important;
+}

@@ -21,8 +21,25 @@ a:visited {
   text-align: justify;
 }
 
-
 .review-date {
   font-size: 0.7rem;
   text-align: right;
+}
+
+.social-icons {
+  margin: 12px;
+}
+
+.ssi-logo {
+  margin: 10px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.trip-advisor-logo {
+  text-align: justify;
+}
+
+.email-us {
+  margin-bottom: 5px;
 }
