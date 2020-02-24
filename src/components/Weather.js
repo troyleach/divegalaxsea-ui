@@ -81,7 +81,6 @@ const useStyles = makeStyles(theme => ({
 // }
 
 const renderWeather = (weather) => {
-  console.log('weather YO', weather.data)
   const { currently, daily } = weather.data;
   const { summary,
     icon,
@@ -94,7 +93,6 @@ const renderWeather = (weather) => {
     uvIndex } = currently;
 
   const date = moment(time * 1000).format('LLLL')
-  console.log('TIME', date)
 
   return (
     <div className='weather-block'>
@@ -121,8 +119,6 @@ const renderWeather = (weather) => {
 
 export default function Weather(props) {
   const classes = useStyles();
-  console.log('here are the props in weather', props)
-
 
   return (
     <div className={classes.root}>
