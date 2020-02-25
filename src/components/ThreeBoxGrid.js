@@ -119,10 +119,10 @@ function renderAdvertising(props) {
       </div>
 
       <hr className="general-line-brake" />
-
       <div className="social-icons">
         <Grid container justify="center" spacing={2}>
-          <Grid xs={2}>
+          {/* NOTES: have no idea why item={true} is set. this gets rid of console errors */}
+          <Grid xs={2} item={true}>
             <a href="https://www.facebook.com/DiveGalaxSeaCozumel">
               <FontAwesomeIcon
                 icon={faFacebookSquare}
@@ -131,7 +131,7 @@ function renderAdvertising(props) {
               />
             </a>
           </Grid>
-          <Grid xs={2}>
+          <Grid xs={2} item={true}>
             <a href="https://twitter.com/divegalaxsea">
               <FontAwesomeIcon
                 icon={faTwitterSquare}
