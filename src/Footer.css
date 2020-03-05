@@ -1,6 +1,8 @@
-.footer {}
+.footer {
+}
 
 .copy-right-text {
   /* TODO: this does not work?? */
-  margin: 5px;
+  margin-top: 10px;
+  padding: 5px;
 }

@@ -1,13 +1,11 @@
-import React, {
-  Component
-} from 'react';
-import './App.css';
-import './Footer.css';
+import React, { Component } from "react";
+import "./App.css";
+import "./Footer.css";
 
-import tripAdvisor from './data/tripAdvisor';
-import weatherData from './data/weatherData';
-import ThreeBoxGrid from './components/ThreeBoxGrid';
-
+import tripAdvisor from "./data/tripAdvisor";
+import weatherData from "./data/weatherData";
+import ThreeBoxGrid from "./components/ThreeBoxGrid";
+import Grid from "@material-ui/core/Grid";
 
 class Footer extends Component {
   constructor(props) {
@@ -18,21 +16,21 @@ class Footer extends Component {
       tripAdvisor: false,
       weatherData: {},
       weather: false,
-      advertising: false,
+      advertising: false
     };
   }
 
   async componentDidMount() {
     const tripAdvisorData = tripAdvisor();
-    const weather = weatherData()
+    const weather = weatherData();
 
     this.setState({
       data: tripAdvisorData,
       tripAdvisor: true,
       weatherData: weather,
       weather: true,
-      advertising: true,
-    })
+      advertising: true
+    });
   }
 
   render() {
@@ -44,12 +42,15 @@ class Footer extends Component {
           <ThreeBoxGrid
             boxOne={this.state}
             boxTwo={this.state}
-            boxThree={this.state} />
-          <small className='copy-right-text'>copy right DiveGalaxsea by: troyLeach</small>
+            boxThree={this.state}
+          />
+          <Grid className="copy-right-text">
+            copy right DiveGalaxsea by: troyLeach
+          </Grid>
         </footer>
-      </div >
+      </div>
     );
-  };
+  }
 }
 
 export default Footer;

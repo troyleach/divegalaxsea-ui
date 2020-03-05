@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
     height: "100%",
-    width: "100"
+    width: "100%"
   },
   card: {
     minWidth: 275
@@ -97,7 +97,7 @@ const renderWeather = weather => {
     <div className="weather-block">
       <div className="weather-time">
         <div>
-          {getWeatherIcon(icon, "4x")}{" "}
+          {getWeatherIcon(icon, "2x")}{" "}
           <span className="temperature-text">
             {Math.round(temperature)}&deg;F
           </span>
@@ -125,7 +125,6 @@ export default function Weather(props) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
       <Grid className="weatherCard">
         <div className="weatherHeader">Cozumel Weather</div>
         <CardContent>
@@ -138,6 +137,5 @@ export default function Weather(props) {
           {/* https://darksky.net/dev */}
         </div>
       </Grid>
-    </div>
   );
 }
