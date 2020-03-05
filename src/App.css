@@ -45,7 +45,7 @@ body {
 
 .App-footer {
   min-width: 100%;
-  margin-top: auto;
+  margin-top: 20px;
   /* push to bottom */
   align-self: flex-start;
   /* collapse to own width */
