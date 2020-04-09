@@ -1,0 +1,32 @@
+.tab-container {
+  padding: 1rem;
+}
+
+.fish-diver-container {
+  text-align: center;
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    background-color: red; /* Pi */
+  }
+
+  .p-one {
+    font-size: 2.7vmin;
+    width: 100%;
+  }
+  .fish-diver {
+    width: 25vw;
+    margin-left: 60px;
+  }
+}
+
+.fish-diver {
+  width: 25vw;
+}
+
+.p-one {
+  font-size: 2.7vmin;
+  text-align: justify;
+  width: 100%;
+}
