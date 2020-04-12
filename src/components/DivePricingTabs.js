@@ -11,7 +11,7 @@ export default () => (
       <Tab>Training</Tab>
       <Tab>Policies</Tab>
     </TabList>
-
+    {/* DIVING */}
     <TabPanel>
       <Grid container spacing={4} justify="center">
         <Grid item md={5} xs={12} className="fish-diver-container">
@@ -51,6 +51,7 @@ export default () => (
         </Grid>
       </Grid>
     </TabPanel>
+    {/* TRAINING */}
     <TabPanel>
       <Grid container spacing={4} justify="center">
         <Grid item md={5} xs={12}>
@@ -107,9 +108,10 @@ export default () => (
         </Grid>
       </Grid>
     </TabPanel>
+    {/* POLICIES */}
     <TabPanel>
       <Grid container spacing={4} justify="center">
-        <Grid item md={5} xs={12}>
+        <Grid item md={12} xs={12}>
           <div className="policies-paragraph">
             <h2>Dive Galaxsea policies:</h2>
             <br />
@@ -122,7 +124,9 @@ export default () => (
             </p>
           </div>
         </Grid>
-        <Grid item md={5} xs={12} className="galaxsea-park-rules-container">
+      </Grid>
+      <Grid container spacing={4} justify="center">
+        <Grid item md={12} xs={12}>
           <div className="marine-park-rules">
             <h2>Marin Park Rules & Regulations:</h2>
             <br />
@@ -133,6 +137,8 @@ export default () => (
             />
           </div>
         </Grid>
+      </Grid>
+      <Grid container spacing={4} justify="center">
         <Grid item md={5} xs={12}>
           <div className="policies-deposit-rules">
             <h2>Deposits:</h2>
