@@ -1,6 +1,10 @@
 .tab-container {
   padding: 1rem;
 }
+ul {
+  margin-left: 0;
+  padding-left: 30px;
+}
 
 .fish-diver-container {
   text-align: center;
@@ -49,7 +53,7 @@
 }
 
 .galaxsea-park-rules {
-  width: 85%;
+  width: 100%;
 }
 .dive-pricing-paragraphs {
   font-size: 2.7vmin;

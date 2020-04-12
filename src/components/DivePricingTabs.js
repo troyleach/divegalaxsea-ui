@@ -111,7 +111,7 @@ export default () => (
     {/* POLICIES */}
     <TabPanel>
       <Grid container spacing={4} justify="center">
-        <Grid item md={12} xs={12}>
+        <Grid item md={10} xs={12}>
           <div className="policies-paragraph">
             <h2>Dive Galaxsea policies:</h2>
             <br />
@@ -126,7 +126,7 @@ export default () => (
         </Grid>
       </Grid>
       <Grid container spacing={4} justify="center">
-        <Grid item md={12} xs={12}>
+        <Grid item md={10} xs={12}>
           <div className="marine-park-rules">
             <h2>Marin Park Rules & Regulations:</h2>
             <br />
@@ -171,11 +171,11 @@ export default () => (
             <h2>Individual Cancellations: </h2>
             <br />
             <p>
-              48 hours prior to departure - 100% refund 24-48 hours prior to
-              departure - 50% refund Less than 24 hours or "No Show" - NO REFUND
-              Please note that after departure, no refunds will be issued due to
-              sea sickness, inability to equalize, or for any other reason the
-              client opts not to dive or snorkel.
+              <ul>
+                <li>48 hours prior to departure - 100% refund</li>
+                <li>24-48 hours prior to departure - 50% refund</li>
+                <li>Less than 24 hours or "No Show" - NO REFUND</li>
+              </ul>
             </p>
             <br />
             <h2>
@@ -184,20 +184,29 @@ export default () => (
             </h2>
             <br />
             <p>
-              Fails to comply with the Marine Park Rules and Regulations Appears
-              to be under the influence of alcohol and/or drugs Otherwise
-              jeopardizes the health and safety of themselves, other clients,
-              staff, and/or crew members.
+              Please note that after departure, no refunds will be issued due to
+              sea sickness, inability to equalize, or for any other reason the
+              client opts not to dive or snorkel.
             </p>
+            <br />
+            <p>
+              Dive GalaxSea reserves the right to refuse service with NO refunds
+              to any client who:
+            </p>
+            <br />
+            <ul>
+              <li>
+                Fails to comply with the Marine Park Rules and Regulations
+              </li>
+              <li>Appears to be under the influence of alcohol and/or drugs</li>
+              <li>
+                Otherwise jeopardizes the health and safety of themselves, other
+                clients, staff, and/or crew members.
+              </li>
+            </ul>
           </div>
         </Grid>
       </Grid>
     </TabPanel>
   </Tabs>
 );
-
-// Dive GalaxSea reserves the right to refuse service with NO refunds to any client who:
-
-// Fails to comply with the Marine Park Rules and Regulations
-// Appears to be under the influence of alcohol and/or drugs
-// Otherwise jeopardizes the health and safety of themselves, other clients, staff, and/or crew members.
