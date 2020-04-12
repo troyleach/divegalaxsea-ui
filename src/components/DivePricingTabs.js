@@ -3,7 +3,10 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "./DivePricingTabs.css";
 import "react-tabs/style/react-tabs.css";
 import { Grid } from "@material-ui/core";
+import DataTable from "./DataTable.js";
+import divingData from "../data/divingData";
 
+const headings = ["Item", "Description", "Price"];
 export default () => (
   <Tabs className="tab-container">
     <TabList>
@@ -49,6 +52,7 @@ export default () => (
             </p>
           </div>
         </Grid>
+        <DataTable headings={headings} data={divingData()} />
       </Grid>
     </TabPanel>
     {/* TRAINING */}
