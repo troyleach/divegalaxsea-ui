@@ -6,12 +6,23 @@
   text-align: center;
 }
 
+.diver-path-container {
+  text-align: center;
+}
+.teacher-training-container {
+  text-align: center;
+}
+
+/* .galaxsea-park-rules-container {
+  text-align: center;
+} */
+
 @media only screen and (max-width: 400px) {
   body {
     background-color: red; /* Pi */
   }
 
-  .p-one {
+  .dive-pricing-paragraphs {
     font-size: 2.7vmin;
     width: 100%;
   }
@@ -25,7 +36,43 @@
   width: 25vw;
 }
 
-.p-one {
+.diver-career-path {
+  width: 100%;
+}
+
+.training-coach {
+  width: 100%;
+}
+
+.marine-park-rules {
+  margin-top: 1rem;
+}
+
+.galaxsea-park-rules {
+  width: 40vw;
+}
+.dive-pricing-paragraphs {
+  font-size: 2.7vmin;
+  text-align: justify;
+  width: 100%;
+}
+
+.training-paragraphs {
+  font-size: 18px;
+  text-align: justify;
+  width: 100%;
+}
+
+.policies-paragraph {
+  margin-top: 1rem;
+}
+
+.policies-paragraph {
+  font-size: 2.7vmin;
+  text-align: justify;
+  width: 100%;
+}
+.policies-deposit-rules {
   font-size: 2.7vmin;
   text-align: justify;
   width: 100%;
