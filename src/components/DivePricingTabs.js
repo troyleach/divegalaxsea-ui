@@ -52,7 +52,7 @@ export default () => (
             </p>
           </div>
         </Grid>
-        <DataTable headings={headings} data={divingData()} />
+        <DataTable headings={headings} data={divingData} />
       </Grid>
     </TabPanel>
     {/* TRAINING */}
