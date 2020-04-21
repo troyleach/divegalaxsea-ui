@@ -3,9 +3,9 @@ import "./DataTable.css";
 
 class DataTable extends Component {
   constructor(props) {
-    super(props); 
+    super(props);
     this.state = {
-      data: props.data(),
+      data: props.data,
       headings: this.props.headings,
     };
   }
