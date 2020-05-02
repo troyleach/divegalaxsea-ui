@@ -15,6 +15,9 @@ class DivePricingTabs extends Component {
     super(props);
     this.state = {
       divingData: [],
+      rentalData: [],
+      trainingData: [],
+      specialtiesData: [],
     };
   }
 
@@ -29,12 +32,50 @@ class DivePricingTabs extends Component {
     );
     // FIXME: CATCH ERRORS
     this.setState({ divingData: divingData.data });
+
+    const rentalData = await axios.get(
+      "https://divegalaxsea.herokuapp.com/rentals",
+      {
+        headers: {
+          Authorization: "Token 051b4b069b96fd98b6f913d9c8509113",
+        },
+      }
+    );
+    this.setState({ rentalData: rentalData.data });
+    // create a fucntion that makes an API request for Rental gear and render the table
+    // Declare a variable and make an API call set the state
+    // create a new table component that renders this data
+
+    const trainingData = await axios.get(
+      "https://divegalaxsea.herokuapp.com/trainings",
+      {
+        headers: {
+          Authorization: "Token 051b4b069b96fd98b6f913d9c8509113",
+        },
+      }
+    );
+    this.setState({ trainingData: trainingData.data });
+
+    const specialtiesData = await axios.get(
+      "https://divegalaxsea.herokuapp.com/specialties",
+      {
+        headers: {
+          Authorization: "Token 051b4b069b96fd98b6f913d9c8509113",
+        },
+      }
+    );
+    this.setState({ specialtiesData: specialtiesData.data });
   }
 
   render() {
-    const { divingData } = this.state;
+    const {
+      divingData,
+      rentalData,
+      trainingData,
+      specialtiesData,
+    } = this.state;
     console.log("this is state", this.state);
-    if (divingData.length === 0) return <Spinner />;
+    if (divingData.length && rentalData.length === 0) return <Spinner />;
     return (
       <Tabs className="tab-container">
         <TabList>
@@ -80,8 +121,9 @@ class DivePricingTabs extends Component {
                 </p>
               </div>
             </Grid>
-            <DataTable headings={headings} data={divingData} />
           </Grid>
+          <DataTable headings={headings} data={divingData} />
+          <DataTable headings={headings} data={rentalData} />
         </TabPanel>
         {/* TRAINING */}
         <TabPanel>
@@ -140,6 +182,8 @@ class DivePricingTabs extends Component {
               />
             </Grid>
           </Grid>
+          <DataTable headings={headings} data={trainingData} />
+          <DataTable headings={headings} data={specialtiesData} />
         </TabPanel>
         {/* POLICIES */}
         <TabPanel>

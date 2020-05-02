@@ -31,7 +31,7 @@ class DataTable extends Component {
         <tr key={id}>
           <td>{title}</td>
           <td>{description}</td>
-          <td>{price}</td>
+          <td>${price}</td>
         </tr>
       );
     });
