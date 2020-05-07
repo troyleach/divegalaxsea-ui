@@ -21,21 +21,6 @@ ul {
   text-align: center;
 } */
 
-@media only screen and (max-width: 400px) {
-  body {
-    background-color: red; /* Pi */
-  }
-
-  .dive-pricing-paragraphs {
-    font-size: 2.7vmin;
-    width: 100%;
-  }
-  .fish-diver {
-    width: 25vw;
-    margin-left: 60px;
-  }
-}
-
 .fish-diver {
   width: 25vw;
 }
@@ -53,7 +38,7 @@ ul {
 }
 
 .galaxsea-park-rules {
-  width: 100%;
+  width: 85%;
 }
 .dive-pricing-paragraphs {
   font-size: 2.7vmin;
@@ -80,4 +65,24 @@ ul {
   font-size: 2.7vmin;
   text-align: justify;
   width: 100%;
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    background-color: red; /* Pi */
+  }
+
+  .dive-pricing-paragraphs {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .policies-deposit-rules,
+  .policies-paragraph {
+    font-size: 18px;
+  }
+
+  .fish-diver {
+    width: 100%;
+  }
 }

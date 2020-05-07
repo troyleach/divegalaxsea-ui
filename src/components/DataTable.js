@@ -10,20 +10,6 @@ class DataTable extends Component {
     };
   }
 
-  render() {
-    return (
-      <div>
-        <h1 id="title">React Dynamic Table</h1>
-        <table id="data">
-          <tbody>
-            <tr>{this.renderTableHeader()}</tr>
-            {this.renderDataTable()}
-          </tbody>
-        </table>
-      </div>
-    );
-  }
-
   renderDataTable() {
     return this.state.data.map((data) => {
       const { id, title, description, price } = data;
@@ -41,6 +27,20 @@ class DataTable extends Component {
     return this.state.headings.map((key, index) => {
       return <th key={index}>{key.toUpperCase()}</th>;
     });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1 id="title">React Dynamic Table</h1>
+        <table id="data">
+          <tbody>
+            <tr>{this.renderTableHeader()}</tr>
+            {this.renderDataTable()}
+          </tbody>
+        </table>
+      </div>
+    );
   }
 }
 

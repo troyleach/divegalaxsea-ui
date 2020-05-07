@@ -75,7 +75,7 @@ class DivePricingTabs extends Component {
       specialtiesData,
     } = this.state;
     console.log("this is state", this.state);
-    if (divingData.length && rentalData.length === 0) return <Spinner />;
+    if (divingData.length === 0 || rentalData.length === 0) return <Spinner />;
     return (
       <Tabs className="tab-container">
         <TabList>
