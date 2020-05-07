@@ -6,6 +6,7 @@ import Home from "./Home";
 import About from "./About";
 import Header from "./Header";
 import Footer from "./Footer";
+import DivePricingTabs from "./components/DivePricingTabs";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Header />
         </div>
         <div className="App-home">
-          <Home />
+          <DivePricingTabs />
         </div>
         <div className="App-footer">
           <Footer />
