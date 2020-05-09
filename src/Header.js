@@ -21,14 +21,23 @@ class Header extends Component {
       <div>
         <nav>
           <Link style={navStyle} to="/">
-            <h3>Logo</h3>
+            <h3>LOGO</h3>
           </Link>
           <ul className="nav-links">
-            <Link style={navStyle} to="/about">
-              <li>About</li>
-            </Link>
-            <Link style={navStyle}>
+            <Link style={navStyle} to="/Diving">
               <li>Diving</li>
+            </Link>
+            <Link style={navStyle} to="/">
+              <li>Reef Map</li>
+            </Link>
+            <Link style={navStyle} to="/about">
+              <li>About Cozumel</li>
+            </Link>
+            <Link style={navStyle} to="/">
+              <li>Gallery</li>
+            </Link>
+            <Link style={navStyle} to="/">
+              <li>Book My Diving</li>
             </Link>
           </ul>
         </nav>
