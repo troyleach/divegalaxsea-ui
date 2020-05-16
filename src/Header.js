@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+
+import "./Header.css";
+
 import { Link } from "react-router-dom";
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import Grid from "@material-ui/core/Grid";
 
 class Header extends Component {
   constructor(props) {
@@ -15,14 +19,14 @@ class Header extends Component {
 
   render() {
     const navStyle = {
-      color: "white",
+      color: "#dddddd",
     };
 
     return (
       <>
-        <header>
-          <div class="row">
-            <div class="image-container col-sm-4">
+        <header className='header-container'>
+          <Grid container spacing={1} justify="center">
+            <Grid item md={4}>
               <Link style={navStyle} to="/">
                 <img
                   className="brand-image"
@@ -30,37 +34,39 @@ class Header extends Component {
                   alt="Brand"
                 />
               </Link>
-            </div>
-            <div class="col-sm-8">
-              <div class="row">
-                <div class="col-md-12 shadow menu-nav-bar">
-                  <div id='cssmenu'>
-                    <Breadcrumbs aria-label="breadcrumb">
-                      <Link style={navStyle} to="/">Home</Link>
-                      <Link style={navStyle} to="/Diving">Diving</Link>
-                      <Link style={navStyle} to="/">Reef Map</Link>
-                      <Link style={navStyle} to="/about">About Cozumel</Link>
-                      <Link style={navStyle} to="/">Gallery</Link>
-                      <Link style={navStyle} to="/">Book My Diving</Link>
-                    </Breadcrumbs>
-                  </div>
-                </div>
+            </Grid>
+            <Grid item md={8}>
+              <Grid container spacing={1} justify="center">
+                <Grid item md={12}>
+                  <Breadcrumbs aria-label="breadcrumb" className='navigation-menu'>
+                    <Link className="menu-text" style={navStyle} to="/">Home</Link>
+                    <Link className="menu-text" style={navStyle} to="/Diving">Diving</Link>
+                    <Link className="menu-text" style={navStyle} to="/">Reef Map</Link>
+                    <Link className="menu-text" style={navStyle} to="/about">About Cozumel</Link>
+                    <Link className="menu-text" style={navStyle} to="/">Gallery</Link>
+                    <Link className="menu-text" style={navStyle} to="/">Book My Diving</Link>
+                  </Breadcrumbs>
+                  <Grid item md={12} align="right" alignItems='flex-start'>
+                    {/* not sure this is the best way to accomplish this bit, having the ssi logo at the bottom of the Grid div */}
+                    <div className='ssi-header-image'>
+                      <Link style={navStyle} to="http://www.divessi.com/">
+                        <img
+                          className="ssi-logo"
+                          src="NEW-SSI-LOGO-WHT.png"
+                          alt="SSI Logo"
+                        />
+                      </Link>
+                    </div>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
 
-                <div class="col-md-12 pull right">
-                  <div class="pull-right">
-                    <a href="http://www.divessi.com/">
-                      <img
-                        className="ssi-logo"
-                        src="NEW-SSI-LOGO-WHT.png"
-                        alt="SSI logo"
-                      />
-                    </a>
-                  </div>
-                </div>
 
-              </div> {/*End of inner row*/}
-            </div> { /*End of col-sm-8*/}
-          </div> { /*End of outer row*/}
+
+
+
         </header>
       </>
     );
