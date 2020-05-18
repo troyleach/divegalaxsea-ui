@@ -9,9 +9,6 @@
   /* color: white; */
 }
 
-.navigation-menu {
-}
-
 nav {
   /* display: flex; */
   justify-content: flex-start;
@@ -45,15 +42,27 @@ nav {
   margin-top: 55px;
 }
 
+.navigation-menu-small-device {
+  display: none;
+}
+
 
 /* mobile styles */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
   body {
     background-color: greenyellow; /* Pi */
   }
   
   .ssi-header-image {
     text-align: center;
+  }
+
+  .navigation-menu {
+    display: none;
+  }
+
+  .navigation-menu-small-device {
+    display: block;
   }
 }
 

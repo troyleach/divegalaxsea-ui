@@ -32,21 +32,40 @@ const navStyle = {
   color: "#dddddd",
 };
 
-
-
-
-
 export default function Header(props) {
   const classes = useStyles();
-  const windowWidth = window.innerWidth;
+  const navigationLinks = [
+    {
+      url: "/",
+      text: "home"
+    },
+    {
+      url: "/Diving",
+      text: "diving"
+    },
+    {
+      url: "/",
+      text: "reef map"
+    },
+    {
+      url: "/about",
+      text: "About Cozumel"
+    },
+    {
+      url: "/",
+      text: "gallery"
+    },
+    {
+      url: "/",
+      text: "Book My Diving"
+    }
+  ]
   const [state, setState] = React.useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
-  console.log('here is the window width', windowWidth);
-
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -66,16 +85,16 @@ export default function Header(props) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Home', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
+        {navigationLinks.map((obj, index) => (
+          <ListItem button key={obj.text}>
+            <Link className="menu-text" style={navStyle} to={obj.url}>{obj.text}</Link>
+            {/* <ListItemText primary={text} /> */}
           </ListItem>
         ))}
       </List>
-
+      <Divider />
     </div>
   );
-
 
   return (
     <>
@@ -93,6 +112,22 @@ export default function Header(props) {
           <Grid item md={8}>
             <Grid container spacing={1} justify="center">
               <Grid item md={12}>
+
+                {/* below is for small device IOS / Droid  this controlled in the css */}
+                <div className='navigation-menu-small-device'>
+                  <div className={classes.smallDeviceMenuContainer}>
+                    {['left'].map((anchor) => (
+                      <React.Fragment key={anchor}>
+                        <Button className={classes.smallDeviceMenuText} onClick={toggleDrawer(anchor, true)}>Navigation</Button>
+                        <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+                          {list(anchor)}
+                        </Drawer>
+                      </React.Fragment>
+                    ))}
+                  </div>
+                </div>
+
+                {/* below is for Desktop  this controlled in the css */}
                 <Breadcrumbs aria-label="breadcrumb" className='navigation-menu'>
                   <Link className="menu-text" style={navStyle} to="/">Home</Link>
                   <Link className="menu-text" style={navStyle} to="/Diving">Diving</Link>
@@ -117,20 +152,6 @@ export default function Header(props) {
             </Grid>
           </Grid>
         </Grid>
-
-        {/* below is for small device IOS / Droid */}
-        <div className={classes.smallDeviceMenuContainer}>
-          {['left'].map((anchor) => (
-            <React.Fragment key={anchor}>
-              <Button className={classes.smallDeviceMenuText} onClick={toggleDrawer(anchor, true)}>Navigation</Button>
-              <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-                {list(anchor)}
-              </Drawer>
-            </React.Fragment>
-          ))}
-        </div>
-
-
 
       </header>
     </>
