@@ -27,7 +27,7 @@ class Header extends Component {
             <Link style={navStyle} to="/Diving">
               <li>Diving</li>
             </Link>
-            <Link style={navStyle} to="/">
+            <Link style={navStyle} to="/ReefMap">
               <li>Reef Map</li>
             </Link>
             <Link style={navStyle} to="/about">

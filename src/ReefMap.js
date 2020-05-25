@@ -3,9 +3,6 @@ import Grid from "@material-ui/core/Grid";
 import "./ReefMap.css";
 
 class ReefMap extends Component {
-  constructor(props) {
-    super(props);
-  }
   async componentDidMount() {}
 
   render() {

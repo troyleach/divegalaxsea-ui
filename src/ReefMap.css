@@ -1,3 +1,21 @@
 .reef-map-container {
   margin: 15px;
+  text-align: center;
+}
+
+.dive-sites {
+  width: 75%;
+}
+
+.dive-flag-large {
+  width: 35%;
+}
+
+.mexican-flag {
+  width: 40%;
+}
+
+.dan-logo {
+  margin-top: 15px;
+  width: 50%;
 }
