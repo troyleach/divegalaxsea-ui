@@ -1,0 +1,78 @@
+.header-container {
+  background-color: #0C0A52;
+  min-height: 10vh;
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-around; */
+  /* font-size: calc(10px + 2vmin); */
+  /* color: white; */
+}
+
+nav {
+  /* display: flex; */
+  justify-content: flex-start;
+  border-bottom: 1px solid green;
+}
+
+
+/* TODO: move this to the block in the Header.js file */
+.menu-text {
+  font-family: Montserrat, sans-serif;
+  /* padding: 17px 10px 17px 0px; */
+  font-size: 80%;
+  /* letter-spacing: 1px; */
+  text-decoration: none;
+  color: #dddddd;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ssi-image-container {
+  align-self: flex-end;
+}
+
+.brand-image {
+  height: 130px;
+  /* width: 330px; */
+  margin: 10px;
+}
+
+.ssi-header-image {
+  margin-top: 55px;
+}
+
+.navigation-menu-small-device {
+  display: none;
+}
+
+
+/* mobile styles */
+@media only screen and (max-width: 500px) {
+  body {
+    background-color: greenyellow; /* Pi */
+  }
+  
+  .ssi-header-image {
+    text-align: center;
+  }
+
+  .navigation-menu {
+    display: none;
+  }
+
+  .navigation-menu-small-device {
+    display: block;
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  body {
+    background-color: red; /* Yellow */
+  }
+  
+  .ssi-header-image {
+    text-align: center;
+  }
+}
