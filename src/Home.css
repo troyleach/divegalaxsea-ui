@@ -1,7 +1,8 @@
 .picture-gallery {
   margin: 15px auto;
-  width: 75%;
-  border: 1px solid red;
+  width: 450px;
+  /* TODO: remove this line below */
+  /* border: 1px solid green; */
 }
 
 
