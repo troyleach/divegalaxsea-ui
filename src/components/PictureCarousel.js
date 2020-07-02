@@ -44,7 +44,6 @@ const axios = require("axios").default;
 
 
 const renderImages = images => {
-  // const BASE_IMAGE_URL = 'https://drive.google.com/uc?id='
   return images.map((image, idx) => (
     <>
       <div key={idx}>
@@ -64,6 +63,7 @@ class PictureCarousel extends Component {
   }
 
   async componentDidMount() {
+    // TODO: maybe move all this to the home.js file?
     const BASE_URL = "http://localhost:3010/"
     const URL = `${BASE_URL}v1/images?type=carousel`;
     const imageUrls = await axios.get(
