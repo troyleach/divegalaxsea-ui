@@ -62,8 +62,7 @@ class PictureCarousel extends Component {
     };
   }
 
-  async componentDidMount() {
-    // TODO: maybe move all this to the home.js file?
+  getTheApiImages = async () => {
     const BASE_URL = "http://localhost:3010/"
     const URL = `${BASE_URL}v1/images?type=carousel`;
     const imageUrls = await axios.get(
@@ -81,8 +80,52 @@ class PictureCarousel extends Component {
     });
   }
 
+  getDiveGlaxseaAPIImages = async () => {
+    const BASE_URL = "http://localhost:3000/"
+    const URL = `${BASE_URL}v1/google_drive_images`;
+    const imageUrls = await axios.get(
+      URL
+    );
+    // FIXME: CATCH ERRORS
+    // this.setState({ divingData: divingData.data });
+    // Need to code in a way to pass the image lib I want
+    // FIXME: so what I need to do is just the the image ID then hard code the url in with the id
+    // const imagesTwo = imageUrls.data.files.filter(obj => obj.webViewLink.includes("view?usp=drivesdk"))
+    console.log('imageUrls', imageUrls.data)
+    // const images = homeImageGallery();
+    const carouselImages = imageUrls.data.find(({ carousel }) => carousel)
+    this.setState({
+      images: carouselImages.carousel
+    });
+  }
+
+
+
+  async componentDidMount() {
+    // this.getTheApiImages();
+    this.getDiveGlaxseaAPIImages()
+    // TODO: maybe move all this to the home.js file?
+    // const BASE_URL = "http://localhost:3010/"
+    // const URL = `${BASE_URL}v1/images?type=carousel`;
+    // const imageUrls = await axios.get(
+    //   URL
+    // );
+    // // FIXME: CATCH ERRORS
+    // // this.setState({ divingData: divingData.data });
+    // // Need to code in a way to pass the image lib I want
+    // // FIXME: so what I need to do is just the the image ID then hard code the url in with the id
+    // // const imagesTwo = imageUrls.data.files.filter(obj => obj.webViewLink.includes("view?usp=drivesdk"))
+    // console.log('imageUrls', imageUrls)
+    // // const images = homeImageGallery();
+    // this.setState({
+    //   images: imageUrls.data[0].images
+    // });
+  }
+
   render() {
     const { images } = this.state;
+    console.log('images', images);
+
     if (!images) return <Spinner />;
     return (
       <>
@@ -93,8 +136,8 @@ class PictureCarousel extends Component {
           showStatus={false}
           showIndicators={false}
           showThumbs={false}
-          interval="2000"
           width="auto"
+          interval={2000}
           className="carousel-container"
         >
           {renderImages(images)}
