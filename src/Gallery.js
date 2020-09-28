@@ -1,12 +1,74 @@
 import React, { Component } from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
-class Gallery extends Component {
+import "./Gallery.css";
+
+import Spinner from "./components/Spinner";
+
+const axios = require("axios").default;
+
+const renderImages = images => {
+  return images.map((image, idx) => (
+    <div className='gallery-image-container'>
+      <img className='gallery-image' alt="" src={image.webContentLink} />
+    </div>
+  ));
+};
+
+// https://github.com/leandrowd/react-responsive-carousel
+class PictureCarousel extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      images: null
+    };
+  }
+
+  getDiveGlaxseaAPIImages = async () => {
+    // FIXME: get base url from env
+    // Should but this in redux || cache the images on app entry
+    const BASE_URL = "http://localhost:3000/"
+    const URL = `${BASE_URL}v1/google_drive_images`;
+    try {
+      const imageUrls = await axios.get(
+        URL
+      );
+      const galleryImages = imageUrls.data.find(({ gallery }) => gallery) || [];
+      this.setState({
+        images: galleryImages.gallery
+      });
+
+    } catch (error) {
+      console.error('errors', error)
+      this.setState({
+        images: []
+      });
+    }
+  }
+
+  async componentDidMount() {
+    this.getDiveGlaxseaAPIImages()
+  }
+
   render() {
+    const { images } = this.state;
+    if (!images) return <Spinner />;
     return (
       <>
-        <h1>Gellary</h1>
+        <Carousel
+          autoPlay
+          infiniteLoop
+          width={650}
+          thumbWidth={80}
+          margin='auto'
+          className='carousel-image-container'
+        >
+          {renderImages(images)}
+        </Carousel>
       </>
-    )
+    );
   }
 }
-export default Gallery
+
+export default PictureCarousel;

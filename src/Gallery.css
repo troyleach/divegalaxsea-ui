@@ -1,0 +1,8 @@
+.carousel-image-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.carousel.carousel-slider {
+  margin: auto;
+}
