@@ -26,9 +26,10 @@ class PictureCarousel extends Component {
   }
 
   getDiveGlaxseaAPIImages = async () => {
-    // FIXME: get base url from env
+    // FIXME:
     // Should but this in redux || cache the images on app entry
-    const BASE_URL = "http://localhost:3000/"
+
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL
     const URL = `${BASE_URL}v1/google_drive_images`;
     try {
       const imageUrls = await axios.get(
@@ -61,7 +62,6 @@ class PictureCarousel extends Component {
           infiniteLoop
           width={650}
           thumbWidth={80}
-          margin='auto'
           className='carousel-image-container'
         >
           {renderImages(images)}
