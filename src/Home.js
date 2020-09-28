@@ -30,9 +30,7 @@ class Home extends Component {
 
 
           <div className='picture-gallery'>
-            <PictureCarousel
-              images={this.state.images}
-            />
+            <PictureCarousel />
           </div>
 
           <ThreeBoxGrid
