@@ -1,9 +1,18 @@
 .picture-gallery {
   margin: 15px auto;
-  width: 75%;
-  border: 1px solid red;
+  width: 600px;
+  /* TODO: remove this line below */
+  /* border: 1px solid green; */
 }
 
+.home-page-context-container {
+  text-align: center;
+}
+
+.home-page-context {
+  padding: 15px;
+  text-align: justify;
+}
 
 /* mobile styles */
 @media only screen and (max-width: 300px) {

@@ -133,10 +133,10 @@ export default function Header(props) {
                   <Link className="menu-text" style={navStyle} to="/Diving">Diving</Link>
                   <Link className="menu-text" style={navStyle} to="/">Reef Map</Link>
                   <Link className="menu-text" style={navStyle} to="/about">About Cozumel</Link>
-                  <Link className="menu-text" style={navStyle} to="/">Gallery</Link>
+                  <Link className="menu-text" style={navStyle} to="/gallery">Gallery</Link>
                   <Link className="menu-text" style={navStyle} to="/">Book My Diving</Link>
                 </Breadcrumbs>
-                <Grid item md={12} align="right" alignItems='flex-start'>
+                <Grid item md={12} align="right">
                   {/* not sure this is the best way to accomplish this bit, having the ssi logo at the bottom of the Grid div */}
                   <div className='ssi-header-image'>
                     <Link style={navStyle} to="http://www.divessi.com/">

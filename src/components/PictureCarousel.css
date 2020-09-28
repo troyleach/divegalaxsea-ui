@@ -1,3 +1,11 @@
 .carousel-container {
       text-align: -webkit-center;
 }
+
+.picture {
+  width: 25vw;
+}
+
+.slide {
+  background: none !important;
+}

@@ -2,26 +2,24 @@ import React, { Component } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
-import "./PictureCarousel.css";
+import "./Gallery.css";
 
-import Spinner from "./Spinner";
+import Spinner from "./components/Spinner";
 
 const axios = require("axios").default;
 
 const renderImages = images => {
   return images.map((image, idx) => (
-    <>
-      <div key={image.id}>
-        <img className="picture" src={image.webContentLink} alt={image.name} />
-      </div>
-    </>
+    <div className='gallery-image-container'>
+      <img className='gallery-image' alt="" src={image.webContentLink} />
+    </div>
   ));
 };
 
 // https://github.com/leandrowd/react-responsive-carousel
 class PictureCarousel extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       images: null
     };
@@ -36,9 +34,9 @@ class PictureCarousel extends Component {
       const imageUrls = await axios.get(
         URL
       );
-      const carouselImages = imageUrls.data.find(({ carousel }) => carousel) || [];
+      const galleryImages = imageUrls.data.find(({ gallery }) => gallery) || [];
       this.setState({
-        images: carouselImages.carousel
+        images: galleryImages.gallery
       });
 
     } catch (error) {
@@ -61,13 +59,10 @@ class PictureCarousel extends Component {
         <Carousel
           autoPlay
           infiniteLoop
-          showArrows={false}
-          showStatus={false}
-          showIndicators={false}
-          showThumbs={false}
-          width="auto"
-          interval={2000}
-          className="carousel-container"
+          width={650}
+          thumbWidth={80}
+          margin='auto'
+          className='carousel-image-container'
         >
           {renderImages(images)}
         </Carousel>

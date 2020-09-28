@@ -24,9 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 const renderDayPanel = (day, idx) => {
   const { time, icon, temperatureHigh, temperatureLow } = day;
-  // const date = moment(time * 1000).format('ddd')
   const date = moment(time * 1000).format("ddd");
-  console.log("this is this index yo", idx, date);
   return (
     <>
       {date}
