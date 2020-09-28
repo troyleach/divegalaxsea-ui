@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
-import Home from "./Home";
-import About from "./About";
 import Header from "./Header";
+import Home from "./Home";
+import Gallery from "./Gallery";
+import About from "./About";
 import Footer from "./Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DivePricingTabs from "./components/DivePricingTabs";
@@ -17,8 +18,9 @@ function App() {
           </div>
           <div className="App-home">
             <Route path="/" exact component={Home} />
-            <Route path="/About" exact component={About} />
             <Route path="/Diving" component={DivePricingTabs} />
+            <Route path="/About" exact component={About} />
+            <Route path="/Gallery" exact component={Gallery} />
           </div>
           <div className="App-footer">
             <Footer />

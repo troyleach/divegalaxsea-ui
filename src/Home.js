@@ -27,8 +27,6 @@ class Home extends Component {
     return (
       <div className="App">
         <div>
-
-
           <div className='picture-gallery'>
             <PictureCarousel />
           </div>
