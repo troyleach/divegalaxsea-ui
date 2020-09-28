@@ -51,7 +51,7 @@ export default function Header(props) {
       text: "About Cozumel"
     },
     {
-      url: "/",
+      url: "/gallery",
       text: "gallery"
     },
     {
