@@ -10,8 +10,6 @@ import Weather from "./Weather";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
-import moment from "moment";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTwitterSquare,

@@ -5,6 +5,7 @@ import "./Weather.css";
 import "./WeatherDayTable";
 import getWeatherIcon from "../lib/getWeatherIcon";
 
+//  {/* https://darksky.net/dev */}
 // FIXME: this seems much easier.. oops
 // https://najens.github.io/weather-icons-react/
 
@@ -27,9 +28,9 @@ import getWeatherIcon from "../lib/getWeatherIcon";
 // import Grid from '@material-ui/core/Grid';
 // import Paper from '@material-ui/core/Paper';
 
-import Card from "@material-ui/core/Card";
+// import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 
 import moment from "moment";
 import WeatherDayTable from "./WeatherDayTable";
@@ -86,7 +87,6 @@ const renderWeather = weather => {
     time,
     apparentTemperature,
     humidity,
-    pressure,
     windSpeed,
     uvIndex
   } = currently;
@@ -122,20 +122,19 @@ const renderWeather = weather => {
 };
 
 export default function Weather(props) {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
-      <Grid className="weatherCard">
-        <div className="weatherHeader">Cozumel Weather</div>
-        <CardContent>
-          <div className="weatherIcons" variant="body2" component="p">
-            {renderWeather(props)}
-          </div>
-        </CardContent>
-        <div className="weatherFooter">
-          <a>Darksky</a>
-          {/* https://darksky.net/dev */}
+    <Grid className="weatherCard">
+      <div className="weatherHeader">Cozumel Weather</div>
+      <CardContent>
+        <div className="weatherIcons" variant="body2" component="p">
+          {renderWeather(props)}
         </div>
-      </Grid>
+      </CardContent>
+      <div className="weatherFooter">
+        <a>Darksky</a>
+      </div>
+    </Grid>
   );
 }

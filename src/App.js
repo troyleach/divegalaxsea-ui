@@ -5,7 +5,7 @@ import Home from "./Home";
 import Gallery from "./Gallery";
 import About from "./About";
 import Footer from "./Footer";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import DivePricingTabs from "./components/DivePricingTabs";
 
 function App() {
